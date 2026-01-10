@@ -90,3 +90,8 @@ git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-open
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
+
+#ipk仓库
+if [[ "${GITHUB_REPOSITORY,,}" == *"openwrt-ci-ipk"* ]]; then
+   echo "CONFIG_USE_APK=n" >> $config_file
+fi
